@@ -1,0 +1,60 @@
+@{
+    ViewData["Title"] = "New";
+}
+@model List
+
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+  <div class="collapse navbar-collapse" id="navbarNav">
+      <h1>Dojo Activity Center</h1>
+    <ul class="navbar-nav" style="margin-left: 560px;">
+      <li class="nav-item active">
+        <a class="nav-link" href="/home">Home <span class="sr-only">(current)</span></a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="/logout">Log Out</a>
+      </li>
+    </ul>
+  </div>
+</nav>
+
+
+<form action= "/create" method ="Post">
+<br>
+    <h3>Create an Activity</h3>
+    <div class="col-sm-6">
+        <label for="ActName">Title:</label>
+        <span asp-validation-for="ActName"></span>
+        <input type="text" class="form-control" name="ActName" placeholder="Activity Name">
+    </div>
+    <div class="col-sm-6">
+        <label for="ActDate">Date & Time:</label>
+        <span asp-validation-for="ActDate"></span>
+        <input type="datetime-local" class="form-control" name="ActDate" placeholder="Activity Date">
+    </div>
+    <div class="row">
+        <div class="col-sm-3">
+            <label for="Duration">Duration:</label>
+            <span asp-validation-for="Duration" ></span>
+            <input type="number" name="Duration" placeholder="Add event duration">
+        </div>
+        <div class="col-sm-3">
+            <span asp-validation-for="TimeFormat"></span>
+            <select name = "TimeFormat">
+                <option value=""></option>
+                <option value="Minutes">Minute(s)</option>
+                <option value="Hours">Hour(s)</option>
+                <option value="Days">Day(s)</option>
+            </select>
+        </div>
+    </div>
+    <div class="form-group">
+        <label for="Description" >Description:</label>
+        <span asp-validation-for="Description"></span>
+        <br>
+        <textarea name="Description" cols="60" rows="6"></textarea>
+    </div>
+    <button type="submit" class="btn btn-primary">Create Activity</button>
+</form>
